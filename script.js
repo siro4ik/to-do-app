@@ -6,15 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterCompleted = document.getElementById('filter-completed');
     const filterIncomplete = document.getElementById('filter-incomplete');
 
-    // Загрузка задач из LocalStorage
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Функция для сохранения задач в LocalStorage
     function saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    // Функция для добавления задачи
     addBtn.addEventListener('click', () => {
         const taskText = todoInput.value.trim();
         if (taskText !== '') {
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Функция для добавления задачи в список
     function addTask(text) {
         const task = {
             id: Date.now(),
@@ -35,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     }
 
-    // Функция для отрисовки задач
     function renderTasks(filter = 'all') {
         todoList.innerHTML = '';
         let filteredTasks = tasks;
@@ -59,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             todoList.appendChild(li);
 
-            // Обработчик для кнопки выполнения
             const completeBtn = li.querySelector('.complete-btn');
             completeBtn.addEventListener('click', () => {
                 task.completed = !task.completed;
@@ -67,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderTasks(filter);
             });
 
-            // Обработчик для кнопки удаления
+
             const deleteBtn = li.querySelector('.delete-btn');
             deleteBtn.addEventListener('click', () => {
                 tasks = tasks.filter(t => t.id !== task.id);
@@ -77,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Фильтры
     filterAll.addEventListener('click', () => {
         setActiveFilter(filterAll);
         renderTasks('all');
@@ -93,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks('incomplete');
     });
 
-    // Функция для установки активного фильтра
     function setActiveFilter(activeButton) {
         document.querySelectorAll('.filters button').forEach(button => {
             button.classList.remove('active');
@@ -101,13 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
         activeButton.classList.add('active');
     }
 
-    // Добавление задачи по нажатию Enter
     todoInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addBtn.click();
         }
     });
-
-    // Инициализация при загрузке
+    
     renderTasks();
 });
