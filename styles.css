@@ -99,8 +99,16 @@ h1 {
 }
 
 .complete-btn{
+  width: 23px;
+  height: 23px;
 }
 
 .complete-btn:hover{
   background-color: #e7fdeaf4;
+}
+
+.task-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

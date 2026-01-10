@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
             li.dataset.id = task.id;
             li.innerHTML = `
                 <span>${task.text}</span>
-                <div>
-                    <button class="complete-btn">${task.completed ? '&#65794;' : '&#128504;'}</button>
+                <div class = "task-btn">
+                    <button class="complete-btn">${task.completed ? '-' : '+'}</button>
                     <button class="delete-btn">Удалить</button>
                 </div>
             `;
