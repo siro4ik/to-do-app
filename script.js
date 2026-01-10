@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 <span>${task.text}</span>
                 <div>
-                    <button class="complete-btn">${task.completed ? '❌' : '✔️'}</button>
+                    <button class="complete-btn">${task.completed ? '&#65794;' : '&#128504;'}</button>
                     <button class="delete-btn">Удалить</button>
                 </div>
             `;
@@ -98,6 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addBtn.click();
         }
     });
-    
+
     renderTasks();
 });

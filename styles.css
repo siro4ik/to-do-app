@@ -97,3 +97,10 @@ h1 {
 .delete-btn:hover {
   background-color: #c82333;
 }
+
+.complete-btn{
+}
+
+.complete-btn:hover{
+  background-color: #e7fdeaf4;
+}
